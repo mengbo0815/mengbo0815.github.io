@@ -1,0 +1,43 @@
+---
+export interface Props {
+  class?: string;
+  delay?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'scale';
+}
+
+const { class: className = '', delay = 0, direction = 'up' } = Astro.props;
+
+const directionClasses: Record<string, string> = {
+  up: 'translate-y-8',
+  down: '-translate-y-8',
+  left: 'translate-x-8',
+  right: '-translate-x-8',
+  scale: 'scale-95',
+};
+---
+
+<div
+  class:list={[className, 'reveal opacity-0 transition-all duration-700 ease-out']}
+  style={`transform: ${direction === 'up' ? 'translateY(2rem)' : direction === 'down' ? 'translateY(-2rem)' : direction === 'left' ? 'translateX(2rem)' : direction === 'right' ? 'translateX(-2rem)' : 'scale(0.95)'}; transition-delay: ${delay}ms;`}
+>
+  <slot />
+</div>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translate(0, 0) scale(1)';
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+</script>

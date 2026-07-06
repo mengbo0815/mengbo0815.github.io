@@ -1,0 +1,88 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+---
+
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Background Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-purple-50 
+              dark:from-primary-950/30 dark:via-surface-dark dark:to-purple-950/30 
+              transition-colors duration-300" />
+  
+  <!-- Decorative Circles -->
+  <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary-200/30 dark:bg-primary-500/5 rounded-full blur-3xl" />
+  <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-200/30 dark:bg-purple-500/5 rounded-full blur-3xl" />
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full">
+    <div class="max-w-4xl">
+      <ScrollReveal delay={100}>
+        <p class="text-sm md:text-base font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
+          跨境电商 · 新媒体运营
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay={200}>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight">
+          王<span class="gradient-text">梦博</span>
+        </h1>
+      </ScrollReveal>
+
+      <ScrollReveal delay={300}>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mt-6 max-w-2xl leading-relaxed">
+          你好！我是郑州商学院跨境电子商务专业的本科生，具备扎实的电商专业知识与
+          <span class="text-primary-600 dark:text-primary-400 font-medium">短视频新媒体实操经验</span>。
+          网感突出、审美良好、执行力强，正在寻找实习机会，期待在实践中快速成长。
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay={400}>
+        <div class="flex flex-wrap gap-4 mt-10">
+          <a href="#projects" class="btn-primary">
+            查看作品
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-outline">
+            联系我
+          </a>
+          <a href="/resume.pdf" class="btn-outline" target="_blank">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            下载简历
+          </a>
+        </div>
+      </ScrollReveal>
+
+      <!-- Stats -->
+      <ScrollReveal delay={500}>
+        <div class="flex flex-wrap gap-8 md:gap-16 mt-16 pt-16 border-t border-gray-200 dark:border-gray-800">
+          <div>
+            <p class="font-display text-3xl md:text-4xl font-bold gradient-text">10+</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">产品上架</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl md:text-4xl font-bold gradient-text">8.4W</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">爆款点赞</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl md:text-4xl font-bold gradient-text">350W</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">播放量</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl md:text-4xl font-bold gradient-text">前3%</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">专业排名</p>
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

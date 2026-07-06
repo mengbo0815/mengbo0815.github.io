@@ -1,0 +1,114 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+
+const skillCategories = [
+  {
+    title: '电商运营',
+    skills: [
+      { name: '产品上架与优化', level: 90 },
+      { name: '关键词优化', level: 85 },
+      { name: '外贸单据处理', level: 80 },
+      { name: '数据复盘分析', level: 80 },
+      { name: '店铺基础运维', level: 85 },
+    ],
+  },
+  {
+    title: '新媒体创作',
+    skills: [
+      { name: '短视频剪辑（剪映）', level: 90 },
+      { name: '图片修图（醒图）', level: 85 },
+      { name: '文案策划撰写', level: 85 },
+      { name: '热点追踪与网感', level: 90 },
+      { name: '内容策略', level: 75 },
+    ],
+  },
+  {
+    title: '办公技能',
+    skills: [
+      { name: 'Word 文档制作', level: 90 },
+      { name: 'Excel 数据台账', level: 85 },
+      { name: 'PPT 汇报制作', level: 80 },
+      { name: 'AI 工具应用', level: 85 },
+      { name: '基础英文读写', level: 70 },
+    ],
+  },
+  {
+    title: '综合素质',
+    skills: [
+      { name: '执行力', level: 95 },
+      { name: '学习能力', level: 90 },
+      { name: '抗压能力', level: 85 },
+      { name: '团队协作', level: 85 },
+      { name: '审美与视觉', level: 80 },
+    ],
+  },
+];
+---
+
+<section id="skills" class="section-padding bg-gray-50/50 dark:bg-surface-dark-alt/50 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <ScrollReveal>
+      <h2 class="section-title">
+        技能 & <span class="gradient-text">工具</span>
+      </h2>
+      <p class="section-subtitle">
+        我掌握的电商运营、新媒体创作和办公技能
+      </p>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-16">
+      {
+        skillCategories.map((category, catIndex) => (
+          <ScrollReveal delay={catIndex * 100}>
+            <div class="card p-6 md:p-8">
+              <h3 class="font-display text-lg font-bold text-gray-900 dark:text-gray-100 mb-6">
+                {category.title}
+              </h3>
+              <div class="space-y-4">
+                {
+                  category.skills.map((skill) => (
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                        <span class="text-xs font-medium text-gray-400 dark:text-gray-500">{skill.level}%</span>
+                      </div>
+                      <div class="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                        <div 
+                          class="h-full bg-gradient-to-r from-primary-500 to-primary-400 rounded-full transition-all duration-1000 ease-out"
+                          style="width: 0%;"
+                          data-width={`${skill.level}%`}
+                        />
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate skill bars when they enter viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bars = entry.target.querySelectorAll('[data-width]');
+          bars.forEach((bar) => {
+            setTimeout(() => {
+              bar.style.width = bar.dataset.width;
+            }, 200);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll('.card').forEach((card) => observer.observe(card));
+</script>

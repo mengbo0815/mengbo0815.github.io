@@ -1,0 +1,95 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+
+const projects = [
+  {
+    title: '跨境电商运营实训',
+    role: '跨境电商运营',
+    timeline: '实训项目',
+    description: '独立完成 10+ 款产品上架、标题关键词优化、定价与页面排版，熟练操作跨境电商后台全流程。整理核对发票、提单、装箱单等全套外贸单据，汇总每日运营数据复盘。',
+    tags: ['产品上架', '关键词优化', '外贸单据'],
+    color: 'from-primary-500 to-primary-600',
+    image: '📦',
+  },
+  {
+    title: '抖音自媒体账号运营',
+    role: '新媒体运营',
+    timeline: '个人项目',
+    description: '自主剪辑直播二次素材，结合平台热点音乐产出短视频，打造单条 8.4 万点赞、350 万播放的爆款内容。熟练掌握短视频平台流量分发规则与账号基础运营。',
+    tags: ['视频剪辑', '热点追踪', '内容创作'],
+    color: 'from-purple-500 to-pink-500',
+    image: '🎬',
+  },
+  {
+    title: '短视频文案策划',
+    role: '内容创作者',
+    timeline: '持续进行',
+    description: '擅长捕捉网络热点与用户偏好，策划撰写短视频文案，具备优秀网感与内容创作能力。积累用户互动与账号基础运营实战经验。',
+    tags: ['文案策划', '网感', '用户洞察'],
+    color: 'from-cyan-500 to-blue-600',
+    image: '✍️',
+  },
+  {
+    title: 'AI 工具高效办公',
+    role: '效率实践者',
+    timeline: '持续积累',
+    description: '熟练使用豆包、Deepseek、Codex、Claude 等 AI 工具，高效完成文案撰写、办公文档处理、视频剪辑等日常工作。',
+    tags: ['AI 工具', '办公效率', '跨技能应用'],
+    color: 'from-emerald-500 to-teal-600',
+    image: '🤖',
+  },
+];
+---
+
+<section id="projects" class="section-padding transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <ScrollReveal>
+      <h2 class="section-title">
+        我的 <span class="gradient-text">作品</span>
+      </h2>
+      <p class="section-subtitle">
+        以下是我在跨境电商运营和新媒体领域的实践成果
+      </p>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-16">
+      {
+        projects.map((project, index) => (
+          <ScrollReveal delay={index * 100}>
+            <div class="card group cursor-pointer overflow-hidden">
+              <!-- Project Image Area -->
+              <div class={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+                <span class="text-6xl transition-transform duration-500 group-hover:scale-110">{project.image}</span>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              </div>
+              
+              <!-- Project Info -->
+              <div class="p-6 md:p-8">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="chip">{project.role}</span>
+                  <span class="text-xs text-gray-400 dark:text-gray-500">{project.timeline}</span>
+                </div>
+                
+                <h3 class="font-display text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                  {project.title}
+                </h3>
+                
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                
+                <div class="flex flex-wrap gap-2">
+                  {
+                    project.tags.map((tag) => (
+                      <span class="chip text-xs">{tag}</span>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

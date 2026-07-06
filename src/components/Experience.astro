@@ -1,0 +1,106 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+
+const experiences = [
+  {
+    type: 'education',
+    title: '跨境电子商务 本科',
+    org: '郑州商学院',
+    timeline: '2023.09 - 2027.06',
+    description: '专业综合排名年级前 3%，专业理论基础扎实。核心课程：市场营销、跨境电商实务、进出口业务实操、网络营销。获得大学英语四级证书。',
+    tags: ['跨境电商', '市场营销', '专业前3%'],
+    icon: '🎓',
+  },
+  {
+    type: 'project',
+    title: '跨境电商运营实训',
+    org: '校内实训项目',
+    timeline: '实训经历',
+    description: '独立完成 10+ 款产品上架、标题关键词优化、定价与页面排版，熟练操作跨境电商后台全流程。整理核对发票、提单、装箱单等全套外贸单据，汇总每日运营数据复盘。',
+    tags: ['产品上架', '数据复盘', '外贸单据'],
+    icon: '📦',
+  },
+  {
+    type: 'project',
+    title: '抖音自媒体账号运营',
+    org: '个人项目',
+    timeline: '个人实践',
+    description: '自主剪辑直播二次素材，结合平台热点音乐产出短视频，打造单条 8.4 万点赞、350 万播放爆款内容。吃透短视频平台流量分发规则，积累账号基础运营实战经验。',
+    tags: ['爆款内容', '视频剪辑', '流量运营'],
+    icon: '🎬',
+  },
+  {
+    type: 'activity',
+    title: '长跑 & 摄影',
+    org: '个人爱好',
+    timeline: '持续坚持',
+    description: '长跑锻炼抗压能力与耐力，适配高强度运营工作。摄影拼图强化视觉审美与图文排版能力，适配产品图文与短视频视觉制作。',
+    tags: ['抗压能力', '视觉审美', '内容创作'],
+    icon: '🏃',
+  },
+];
+---
+
+<section id="experience" class="section-padding transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <ScrollReveal>
+      <h2 class="section-title">
+        我的 <span class="gradient-text">经历</span>
+      </h2>
+      <p class="section-subtitle">
+        教育背景、实践经历和课外活动 — 每一步都在积累我的专业能力
+      </p>
+    </ScrollReveal>
+
+    <div class="relative mt-16">
+      <!-- Timeline Line -->
+      <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary-500 via-primary-300 to-transparent 
+                  dark:from-primary-600 dark:via-primary-800" />
+
+      <div class="space-y-12">
+        {
+          experiences.map((exp, index) => (
+            <ScrollReveal delay={index * 100}>
+              <div class={`relative flex flex-col md:flex-row gap-6 md:gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <!-- Timeline Dot -->
+                <div class="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary-500 dark:bg-primary-400 
+                            ring-4 ring-white dark:ring-surface-dark z-10" />
+                
+                <!-- Content -->
+                <div class={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                  <div class="card p-6 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-center gap-3 mb-3 md:mb-2">
+                      <span class="text-2xl">{exp.icon}</span>
+                      <div>
+                        <span class="chip text-xs">{exp.type === 'education' ? '教育' : exp.type === 'work' ? '实习' : exp.type === 'project' ? '项目' : '活动'}</span>
+                        <span class="text-xs text-gray-400 dark:text-gray-500 ml-2">{exp.timeline}</span>
+                      </div>
+                    </div>
+                    
+                    <h3 class="font-display text-lg font-bold text-gray-900 dark:text-gray-100 mt-2">
+                      {exp.title}
+                    </h3>
+                    <p class="text-sm font-medium text-primary-600 dark:text-primary-400 mt-1">
+                      {exp.org}
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                      {exp.description}
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      {
+                        exp.tags.map((tag) => (
+                          <span class="chip text-xs">{tag}</span>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

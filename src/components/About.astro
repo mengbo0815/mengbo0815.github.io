@@ -1,0 +1,65 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+---
+
+<section id="about" class="section-padding bg-gray-50/50 dark:bg-surface-dark-alt/50 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <ScrollReveal>
+      <h2 class="section-title">
+        关于 <span class="gradient-text">我</span>
+      </h2>
+      <p class="section-subtitle">
+        了解我的背景、专业方向和我在寻找什么样的机会
+      </p>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 gap-12 mt-16 items-center">
+      <!-- Avatar / Illustration -->
+      <ScrollReveal direction="left" delay={100}>
+        <div class="relative">
+          <div class="w-full aspect-square max-w-md mx-auto rounded-3xl bg-gradient-to-br from-primary-100 to-primary-200 
+                      dark:from-primary-900/30 dark:to-primary-800/20 
+                      flex items-center justify-center overflow-hidden">
+            <div class="text-8xl opacity-30 dark:opacity-20">📦</div>
+          </div>
+          <!-- Decorative dots -->
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-primary-200/30 dark:bg-primary-500/10 rounded-full blur-xl" />
+          <div class="absolute -top-4 -left-4 w-24 h-24 bg-purple-200/30 dark:bg-purple-500/10 rounded-full blur-xl" />
+        </div>
+      </ScrollReveal>
+
+      <!-- Bio -->
+      <ScrollReveal direction="right" delay={200}>
+        <div class="space-y-6">
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            我是郑州商学院跨境电子商务专业本科生，专业综合排名年级前 3%，
+            具备扎实的电商理论基础与丰富的短视频新媒体实操经验。
+          </p>
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            目前我正在寻找 <span class="text-primary-600 dark:text-primary-400 font-semibold">2025 年实习机会</span>，
+            希望在跨境电商运营或新媒体领域发挥自己的专业优势，在实践中快速成长。
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="card p-4">
+              <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">📍 所在地</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">河南省郑州市</p>
+            </div>
+            <div class="card p-4">
+              <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">🎓 学历</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">本科在读 · 跨境电子商务</p>
+            </div>
+            <div class="card p-4">
+              <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">💼 求职方向</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">跨境电商运营 · 新媒体运营</p>
+            </div>
+            <div class="card p-4">
+              <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">📜 证书</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">大学英语四级 · C1 驾照</p>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>
