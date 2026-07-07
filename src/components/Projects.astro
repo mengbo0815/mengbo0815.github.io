@@ -18,7 +18,7 @@ const projects = [
     description: '自主剪辑直播二次素材，结合平台热点音乐产出短视频，打造单条 8.4 万点赞、350 万播放的爆款内容。熟练掌握短视频平台流量分发规则与账号基础运营。',
     tags: ['视频剪辑', '热点追踪', '内容创作'],
     color: 'from-purple-500 to-pink-500',
-    image: '🎬',
+    image: '/images/douyin.jpg',
   },
   {
     title: '短视频文案策划',
@@ -59,7 +59,13 @@ const projects = [
             <div class="card group cursor-pointer overflow-hidden">
               <!-- Project Image Area -->
               <div class={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <span class="text-6xl transition-transform duration-500 group-hover:scale-110">{project.image}</span>
+                {
+                  project.image.startsWith('/') ? (
+                    <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  ) : (
+                    <span class="text-6xl transition-transform duration-500 group-hover:scale-110">{project.image}</span>
+                  )
+                }
                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
               
